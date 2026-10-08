@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Catch Your Breath</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#161a28;font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+#krati-breathe-v9{max-width:760px;margin:auto;padding:12px}
+#krati-breathe-v9 .world{position:relative;overflow:hidden;min-height:640px;border-radius:24px;background:linear-gradient(180deg,#20253a,#333950 55%,#484e63);transition:background 1.6s;padding:20px 14px 18px;color:#fff}
+.world.c2{background:linear-gradient(180deg,#293148,#414a61,#596176)}.world.c4{background:linear-gradient(180deg,#344158,#525e75,#6c7588)}.world.c6{background:linear-gradient(180deg,#3f5069,#68758b,#8992a3)}.world.c7{background:linear-gradient(180deg,#465971,#758299,#9aa2b0)}
+.top{text-align:center;position:relative;z-index:20}.prog{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.68);padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.07)}.msg{font-size:25px;font-weight:800;min-height:32px;margin-top:7px}.sub{font-size:15px;font-weight:500;color:rgba(255,255,255,.84);min-height:24px;margin-top:5px}
+.sound{position:absolute;right:13px;top:13px;z-index:30;border:1px solid rgba(255,255,255,.25);background:rgba(20,24,38,.22);color:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700}
+.stage{height:420px;position:relative;display:flex;justify-content:center}.ring{position:absolute;top:45px;width:155px;height:155px;border-radius:50%;border:2px solid rgba(255,255,255,.72);background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;z-index:8;transition:width 3s linear,height 3s linear,background .5s,box-shadow .5s,opacity .8s}.ring.inhale{width:270px;height:270px;background:rgba(255,255,255,.13)}.ring.holdphase{width:270px;height:270px;background:rgba(255,255,255,.16);box-shadow:0 0 0 12px rgba(255,255,255,.07);animation:holdPulse .85s ease-in-out infinite alternate}.ring.exhale{width:150px;height:150px;transition:width 5s linear,height 5s linear,background .5s,box-shadow .5s}.inside{text-align:center;padding:15px;max-width:150px}.inside strong{display:block;font-size:22px;font-weight:850;line-height:1.05}.inside span{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.77);margin-top:7px}.holdphase .inside strong{font-size:29px;letter-spacing:.09em}.exhale .inside strong{font-size:22px}@keyframes holdPulse{to{box-shadow:0 0 0 20px rgba(255,255,255,.025)}}
+.thought{position:absolute;font-family:Georgia,serif;font-style:italic;font-size:12px;color:rgba(255,255,255,.47);opacity:.58;z-index:2;animation:drift 4.7s ease-in-out infinite alternate;transition:opacity 1.5s,transform 1.8s,filter 1.5s}.t1{left:4%;top:22%}.t2{right:4%;top:29%;animation-delay:.5s}.t3{left:6%;top:52%;animation-delay:1.1s}.t4{right:5%;top:55%;animation-delay:1.5s}.t5{left:12%;top:77%;animation-delay:.8s}.t6{right:10%;top:76%;animation-delay:1.9s}.t7{left:42%;top:13%;animation-delay:1.3s}@keyframes drift{from{transform:translate(-5px,-5px)}to{transform:translate(7px,7px)}}.world.c2 .t1,.world.c2 .t4{opacity:0;transform:translateY(-45px);filter:blur(2px)}.world.c4 .t1,.world.c4 .t4,.world.c4 .t2,.world.c4 .t5{opacity:0;transform:translateY(-50px);filter:blur(2px)}.world.c6 .t1,.world.c6 .t2,.world.c6 .t3,.world.c6 .t4,.world.c6 .t5,.world.c6 .t6{opacity:0;transform:translateY(-55px);filter:blur(2px)}.world.c7 .thought{opacity:0;transform:translateY(-60px);filter:blur(2px)}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:0;transition:opacity 1.4s}.world.c2 .star{opacity:.15}.world.c4 .star{opacity:.35}.world.c6 .star{opacity:.65}.world.c7 .star{opacity:.9}.s1{left:18%;top:16%}.s2{left:79%;top:19%}.s3{left:88%;top:48%}.s4{left:24%;top:61%}.s5{left:64%;top:68%}.s6{left:43%;top:9%}
+.krati{position:absolute;left:50%;bottom:28px;width:116px;height:181px;transform:translateX(-50%);z-index:10;transform-origin:50% 100%;transition:transform .8s}.hairBack{position:absolute;left:17px;top:-4px;width:82px;height:105px;border-radius:43px 43px 34px 34px;background:#2a2225;z-index:1}.hairBack:after{content:'';position:absolute;left:8px;right:8px;bottom:-10px;height:35px;border-radius:0 0 30px 30px;background:#2a2225}.head{position:absolute;left:28px;top:8px;width:60px;height:65px;border-radius:47% 47% 49% 49%;background:#d9aa8e;z-index:4}.crownL,.crownR{position:absolute;top:-11px;height:22px;background:#2a2225;z-index:7}.crownL{left:-5px;width:37px;border-radius:28px 13px 8px 6px;transform:rotate(-4deg)}.crownR{right:-5px;width:36px;border-radius:13px 28px 6px 8px;transform:rotate(4deg)}.forehead{position:absolute;left:9px;right:9px;top:7px;height:17px;border-radius:50%;background:#d9aa8e;z-index:6}.strandL,.strandR{position:absolute;top:5px;width:7px;height:34px;background:#2a2225;z-index:8}.strandL{left:-3px;border-radius:9px;transform:rotate(5deg)}.strandR{right:-3px;border-radius:9px;transform:rotate(-5deg)}.brow{position:absolute;top:25px;width:12px;height:4px;border-top:1.5px solid #493336;border-radius:50%;z-index:10}.bl{left:9px}.br{right:9px}.eye{position:absolute;top:31px;width:13px;height:8px;border-radius:50%;background:#fff;transition:height .25s,top .25s;z-index:10}.el{left:8px}.er{right:8px}.pupil{position:absolute;width:5.5px;height:5.5px;border-radius:50%;background:#352b2c;left:3.7px;top:1.2px}.eye:before,.eye:after{content:'';position:absolute;width:4px;height:1.5px;background:#2e2527;right:-2px}.eye:before{top:-2px;transform:rotate(-28deg)}.eye:after{top:1px;right:-3px;transform:rotate(-9deg)}.cheek{position:absolute;top:44px;width:11px;height:5px;border-radius:50%;background:rgba(216,105,130,.3)}.cl{left:5px}.cr{right:5px}.mouth{position:absolute;left:23px;top:50px;width:15px;height:7px;border-bottom:2px solid #8d5359;border-radius:0 0 14px 14px}.neck{position:absolute;left:50px;top:67px;width:17px;height:14px;background:#d9aa8e}.dress{position:absolute;left:28px;top:77px;width:61px;height:72px;background:#e79aad;clip-path:polygon(23% 0,77% 0,100% 100%,0 100%);border-radius:9px 9px 15px 15px;z-index:3}.dress:before{content:'';position:absolute;left:21px;top:0;width:19px;height:12px;border-radius:0 0 12px 12px;background:#d9aa8e}.arm{position:absolute;top:82px;width:17px;height:61px;background:#d9aa8e;border-radius:12px;z-index:2;transform-origin:50% 5px}.armL{left:19px;transform:rotate(10deg)}.armR{right:18px;transform:rotate(-10deg)}.tattoo{position:absolute;top:17px;left:4px;font-size:9px;color:#55444a;transform:rotate(90deg)}.leg{position:absolute;top:143px;width:19px;height:28px;background:#d9aa8e;border-radius:0 0 12px 12px}.legL{left:34px;transform:rotate(55deg)}.legR{right:33px;transform:rotate(-55deg)}.krati.breathing .eye{height:2px;top:34px;background:#352b2c}.krati.breathing .pupil{display:none}.krati.exhaling{transform:translateX(-50%) translateY(4px)}.krati.dance{animation:dance 1.8s ease}@keyframes dance{0%,100%{transform:translateX(-50%)}25%{transform:translateX(-50%) translateY(-8px) rotate(-6deg)}50%{transform:translateX(-50%) translateY(-11px) rotate(6deg)}75%{transform:translateX(-50%) translateY(-6px) rotate(-4deg)}}
+.controls{text-align:center;position:relative;z-index:20}.holdbtn{min-height:54px;min-width:205px;border-radius:999px;border:1.5px solid rgba(255,255,255,.65);background:rgba(255,255,255,.16);color:#fff;font-size:16px;font-weight:800;padding:0 26px;touch-action:none}.guide{display:inline-block;font-size:12px;font-weight:600;color:rgba(255,255,255,.74);background:rgba(20,24,38,.16);padding:7px 12px;border-radius:999px;margin-top:9px}.end{display:none;text-align:center;position:relative;z-index:20}.end.show{display:block}.end h3{font-size:25px;margin:4px 0 6px}.end p{font-size:15px;opacity:.84}.again{min-height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.14);color:#fff;padding:0 20px}
+</style>
+</head><body>
+<div id="krati-breathe-v9">
+<section class="world">
+<button class="sound" type="button">♪ Sound on</button>
+<span class="thought t1">what if…</span><span class="thought t2">future?</span><span class="thought t3">everything at once…</span><span class="thought t4">expectations</span><span class="thought t5">what happens next?</span><span class="thought t6">am I doing enough?</span><span class="thought t7">too much…</span>
+<i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i><i class="star s5"></i><i class="star s6"></i>
+<div class="top"><div class="prog">Breath 1 of 7</div><div class="msg">Ready, Krati?</div><div class="sub">For the next minute, you don't need to do anything else.</div></div>
+<div class="stage">
+<div class="ring"><div class="inside"><strong>Press &amp; hold</strong><span>start whenever you're ready</span></div></div>
+<div class="krati"><div class="hairBack"></div><div class="head"><div class="forehead"></div><div class="crownL"></div><div class="crownR"></div><div class="strandL"></div><div class="strandR"></div><i class="brow bl"></i><i class="brow br"></i><div class="eye el"><i class="pupil"></i></div><div class="eye er"><i class="pupil"></i></div><i class="cheek cl"></i><i class="cheek cr"></i><div class="mouth"></div></div><div class="neck"></div><div class="arm armL"></div><div class="arm armR"><span class="tattoo">➶</span></div><div class="dress"></div><div class="leg legL"></div><div class="leg legR"></div></div>
+</div>
+<div class="controls"><button class="holdbtn" type="button">Press &amp; hold</button><br><div class="guide">Keep holding through BREATHE IN + HOLD • release at BREATHE OUT</div></div>
+<div class="end"><h3>Feeling a little lighter, Krati? :)</h3><p>No answers needed. Just a little quieter than before. 🌙</p><button class="again" type="button">Breathe again ↻</button></div>
+</section></div>
+<script>
+(()=>{
+const r=document.querySelector('#krati-breathe-v9'),w=r.querySelector('.world'),ring=r.querySelector('.ring'),inside=r.querySelector('.inside'),msg=r.querySelector('.msg'),sub=r.querySelector('.sub'),prog=r.querySelector('.prog'),btn=r.querySelector('.holdbtn'),k=r.querySelector('.krati'),controls=r.querySelector('.controls'),end=r.querySelector('.end'),again=r.querySelector('.again'),soundBtn=r.querySelector('.sound');
+const B=[['Slowly breathe in…','Bas yahin raho for a moment, Krati.','And let it go…'],['Another slow breath…','Krati, let your shoulders loosen.','Let a couple of those thoughts drift away.'],['Breathe in gently…','Krati, relax your jaw too :)','Softly let the breath leave.'],['Come back to right now…','Krati, feel your feet on the ground.','You don’t need all those thoughts right now.'],['Breathe with what remains…','You don’t have to stop every thought, Krati.','Let them come… and let them pass.'],['One more, nice and slow…','Notice how much quieter it is getting.','Let a little more go.'],['Last one, Krati…','You don’t have to figure everything out right now.','For this moment, just be here. 🌙']];
+let i=0,state='ready',t1,t2,audio=null,master=null,ambientStarted=false,soundOn=true,ambientNodes=[];
+
+function ensureAudio(){
+ if(audio) { if(audio.state==='suspended') audio.resume(); return; }
+ audio=new (window.AudioContext||window.webkitAudioContext)();
+ master=audio.createGain(); master.gain.value=.16; master.connect(audio.destination);
+}
+function tone(freq,dur=.7,vol=.08,type='sine',delay=0){
+ if(!soundOn)return; ensureAudio();
+ const o=audio.createOscillator(),g=audio.createGain(),now=audio.currentTime+delay;
+ o.type=type;o.frequency.setValueAtTime(freq,now);
+ g.gain.setValueAtTime(0.0001,now);g.gain.exponentialRampToValueAtTime(vol,now+.05);g.gain.exponentialRampToValueAtTime(.0001,now+dur);
+ o.connect(g);g.connect(master);o.start(now);o.stop(now+dur+.05);
+}
+function chime(kind){
+ if(kind==='hold'){tone(523.25,.8,.11);tone(659.25,.9,.06,'sine',.07)}
+ if(kind==='out'){tone(440,.9,.09);tone(349.23,1.1,.055,'sine',.08)}
+ if(kind==='settle'){tone(329.63,1.2,.055);tone(261.63,1.4,.035,'sine',.12)}
+}
+function startAmbient(){
+ if(ambientStarted||!soundOn)return;ensureAudio();ambientStarted=true;
+ [130.81,196,261.63].forEach((f,n)=>{
+   const o=audio.createOscillator(),g=audio.createGain(),lfo=audio.createOscillator(),lg=audio.createGain();
+   o.type='sine';o.frequency.value=f;g.gain.value=.018/(n+1);
+   lfo.frequency.value=.06+n*.018;lg.gain.value=.006/(n+1);lfo.connect(lg);lg.connect(g.gain);
+   o.connect(g);g.connect(master);o.start();lfo.start();ambientNodes.push(o,lfo);
+ });
+}
+function stopAmbient(){ambientNodes.forEach(n=>{try{n.stop()}catch(e){}});ambientNodes=[];ambientStarted=false}
+soundBtn.onclick=()=>{soundOn=!soundOn;soundBtn.textContent=soundOn?'♪ Sound on':'♪ Sound off';if(soundOn)startAmbient();else stopAmbient()};
+
+function start(){
+ if(state!=='ready')return;ensureAudio();startAmbient();state='inhale';k.classList.add('breathing');msg.textContent=B[i][0];sub.textContent=B[i][1];btn.textContent='Keep holding…';inside.innerHTML='<strong>BREATHE IN</strong><span>slowly… follow the circle</span>';ring.className='ring inhale';
+ t1=setTimeout(()=>{if(state!=='inhale')return;state='hold';chime('hold');ring.className='ring holdphase';inside.innerHTML='<strong>HOLD</strong><span>just for a moment…</span>';msg.textContent='Hold gently…';sub.textContent='Just for a moment, Krati.';btn.textContent='Keep holding…';
+ t2=setTimeout(()=>{if(state!=='hold')return;state='waitrelease';chime('out');ring.className='ring holdphase';inside.innerHTML='<strong>BREATHE OUT</strong><span>release now • slowly</span>';msg.textContent='Now let it go…';sub.textContent=B[i][2];btn.textContent='Release now'},2000)},3000);
+}
+function release(){
+ if(state==='inhale'||state==='hold'){clearTimeout(t1);clearTimeout(t2);state='ready';ring.className='ring';inside.innerHTML='<strong>Press & hold</strong><span>nice and slow — no rush</span>';btn.textContent='Press & hold';k.classList.remove('breathing');msg.textContent='Whenever you’re ready…';sub.textContent='Keep holding until the circle says BREATHE OUT.';return}
+ if(state!=='waitrelease')return;state='exhale';ring.className='ring exhale';inside.innerHTML='<strong>BREATHE OUT</strong><span>slowly let it leave</span>';k.classList.add('exhaling');btn.textContent='Breathe out…';
+ setTimeout(()=>{chime('settle');i++;w.className='world c'+Math.min(i,7);k.classList.remove('breathing','exhaling');if(i>=7){finish();return}state='ready';ring.className='ring';prog.textContent='Breath '+(i+1)+' of 7';
+ if(i===2){msg.textContent='A little less to carry.';sub.textContent='Just keep breathing, Krati.'}else if(i===4){msg.textContent='See? Some thoughts have already left.';sub.textContent='You didn’t have to fight them.'}else if(i===6){msg.textContent='Almost quiet now.';sub.textContent='One last breath, Krati.'}else{msg.textContent='Whenever you’re ready…';sub.textContent='Take your time, Krati.'}
+ inside.innerHTML='<strong>Press & hold</strong><span>start when you’re ready</span>';btn.textContent='Press & hold'},5000);
+}
+function finish(){state='done';w.className='world c7';prog.textContent='';msg.textContent='That’s it, Krati.';sub.textContent='Stay here for just a second.';controls.style.visibility='hidden';inside.innerHTML='<strong>Just be here.</strong><span>nothing to solve</span>';setTimeout(()=>{ring.style.opacity=0;msg.textContent='';sub.textContent='';k.classList.add('dance');setTimeout(()=>{k.classList.remove('dance');end.classList.add('show')},1800)},2200)}
+function reset(){clearTimeout(t1);clearTimeout(t2);i=0;state='ready';w.className='world';ring.className='ring';ring.style.opacity=1;k.className='krati';controls.style.visibility='visible';end.classList.remove('show');prog.textContent='Breath 1 of 7';msg.textContent='Ready, Krati?';sub.textContent="For the next minute, you don't need to do anything else.";inside.innerHTML='<strong>Press & hold</strong><span>start whenever you’re ready</span>';btn.textContent='Press & hold'}
+btn.addEventListener('pointerdown',e=>{e.preventDefault();start()});btn.addEventListener('pointerup',release);btn.addEventListener('pointercancel',release);again.addEventListener('click',reset);
+})();
+</script></body></html>
